@@ -1,0 +1,7 @@
+{
+  "name": "virvel-frisor",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes serve . -p 3333"
+  }
+}

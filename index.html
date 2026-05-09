@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Virvel frisør i Narvik: klipp, farge og styling. Bestill time online eller ring oss." />
+  <title>Virvel frisør — Narvik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Hopp til innhold</a>
+  <a class="skip-link" href="#footer-kontakt">Hopp til kontakt</a>
+
+  <div class="top-bar" role="region" aria-label="Kontaktlinje">
+    <div class="wrap top-bar__inner">
+      <a href="tel:+4722123456" class="top-bar__link">
+        <span class="top-bar__icon" aria-hidden="true">☎</span> 76 94 12 00
+      </a>
+      <span class="top-bar__divider" aria-hidden="true"></span>
+      <button type="button" class="top-bar__cta" data-open-booking>Bestill time</button>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="wrap site-header__inner">
+      <a class="logo" href="#top" aria-label="Virvel frisør — til toppen">
+        <span class="logo__mark">V</span>
+        <span class="logo__text">Virvel<span class="logo__sub">frisør</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Hovedmeny">
+        <button
+          type="button"
+          class="nav__toggle"
+          aria-expanded="false"
+          aria-controls="nav-panel"
+          id="nav-toggle"
+          aria-label="Åpne eller lukk meny"
+        >
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+
+        <div class="nav__panel" id="nav-panel">
+          <ul class="nav__list">
+            <li class="nav__item nav__item--has-sub">
+              <div class="nav__item-head">
+                <a href="#tjenester" class="nav__link">Tjenester</a>
+                <button
+                  type="button"
+                  class="nav__sub-toggle"
+                  aria-expanded="false"
+                  aria-controls="sub-tjenester"
+                  aria-label="Vis undermeny for Tjenester"
+                >
+                  <span class="nav__sub-toggle-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+              <ul class="nav__sub" id="sub-tjenester">
+                <li><a href="#tjenester">Klipp &amp; styling</a></li>
+                <li><a href="#tjenester">Farge &amp; highlights</a></li>
+                <li><a href="#tjenester">Behandlinger</a></li>
+              </ul>
+            </li>
+            <li class="nav__item"><a href="#om-oss" class="nav__link">Om oss</a></li>
+            <li class="nav__item"><a href="#team" class="nav__link">Team</a></li>
+            <li class="nav__item"><a href="#galleri" class="nav__link">Galleri</a></li>
+            <li class="nav__item"><a href="#footer-kontakt" class="nav__link">Kontakt</a></li>
+          </ul>
+          <div class="nav__actions">
+            <button type="button" class="btn btn--primary btn--sm" data-open-booking>Bestill time</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <button type="button" id="nav-overlay" class="nav-overlay" aria-label="Lukk meny" tabindex="-1" hidden></button>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__media" role="img" aria-label="Utsnitt fra Virvel"></div>
+      <div class="hero__veil" aria-hidden="true"></div>
+      <div class="wrap hero__content">
+        <p class="hero__eyebrow reveal">Frisør · Narvik sentrum</p>
+        <h1 id="hero-title" class="hero__title reveal reveal--delay-1">Virvel frisør</h1>
+        <p class="hero__lead reveal reveal--delay-2">
+          Vi klipper, farger og styler — du bestemmer hvor rolig eller vågal det skal være. Ta turen innom, eller book time når det passer deg.
+        </p>
+        <div class="hero__actions reveal reveal--delay-3">
+          <button type="button" class="btn btn--primary btn--lg" data-open-booking>Bestill time</button>
+          <a href="#tjenester" class="btn btn--ghost btn--lg">Se tjenester</a>
+        </div>
+      </div>
+      <button type="button" class="hero__scroll" aria-label="Scroll til velkomst" data-scroll-to="#velkommen">
+        <span class="hero__scroll-line"></span>
+      </button>
+    </section>
+
+    <section class="section section--cream" id="velkommen">
+      <div class="wrap grid-two">
+        <div class="prose reveal">
+          <p class="section__eyebrow">Velkommen til</p>
+          <h2 class="section__title">Virvel frisør</h2>
+          <p>
+            Vi holder til i Narvik og liker å ta oss tid: først spørre hva du ønsker, så klippe og farge ut fra det.
+            Ingen hast — bare ordentlig håndverk og produkter vi står inne for.
+          </p>
+          <p>
+            Litt oppfriskning eller helt ny frisyre? Vi finner ut av det sammen.
+          </p>
+          <ul class="checklist">
+            <li>Personlig konsultasjon før klipp og farge</li>
+            <li>Produkter vi står inne for — og som funker i vanlig bruk</li>
+            <li><a href="#team">Se hvem som jobber her</a> — si fra hva du trenger, så peker vi deg til riktig stylisten</li>
+          </ul>
+        </div>
+        <figure class="ratio reveal reveal--delay-1">
+          <img
+            src="css/1.PNG"
+            alt="Kunde med farget hår i stolen hos Virvel"
+            width="900"
+            height="1125"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--promo reveal" aria-labelledby="promo-title">
+      <div class="wrap promo-banner">
+        <div class="promo-banner__glow" aria-hidden="true"></div>
+        <div class="promo-banner__content">
+          <p class="promo-banner__eyebrow">Sommer · Joico</p>
+          <h2 id="promo-title" class="promo-banner__title">Sommerbag og rabatt på Joico Colorful</h2>
+          <p class="promo-banner__lead">
+            Joico Colorful Anti-Fade shampoo og conditioner passer deg som vil beholde fargen fresh lenger. Kampanjepris kr&nbsp;649,- (ordinær pris fra kr&nbsp;748,-/845,-). Sommerbagen i kampanjen følger med.
+          </p>
+        </div>
+        <figure class="promo-banner__figure" aria-label="Produktbilde">
+          <img src="css/produkt.PNG" alt="Joico Colorful shampoo og conditioner med sommerbag" width="1200" height="900" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--cream section--services" id="tjenester">
+      <div class="wrap">
+        <header class="section-head section-head--services reveal">
+          <p class="section__eyebrow">Menyen</p>
+          <h2 class="section__title">Tjenester</h2>
+          <p class="section__intro">
+            Trykk åpent under for å se behandlinger og <strong>frapris</strong> fra
+            <a href="https://frisorvirvel.bestille.no/OnCust2/#!/booking" target="_blank" rel="noopener noreferrer">booking</a>.
+            Sluttpris avklarer vi når du er her.
+          </p>
+        </header>
+
+        <div class="service-showcase">
+          <article class="service-panel reveal">
+            <header class="service-panel__head">
+              <span class="service-panel__mark" aria-hidden="true">✂</span>
+              <div class="service-panel__intro">
+                <h3 class="service-panel__title">Klipp, farge &amp; styling</h3>
+                <p class="service-panel__dek">Herre, barn, farging, folie og striper.</p>
+              </div>
+            </header>
+
+            <details class="service-subgroup">
+              <summary class="service-subgroup__summary">
+                <span class="service-subgroup__title">Klipp &amp; herre</span>
+                <span class="service-subgroup__chev" aria-hidden="true"></span>
+              </summary>
+              <div class="service-subgroup__inner">
+              <ul class="service-board__list">
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn"><span class="service-board__txt">Klipp/føn</span><span class="service-board__price">fra 950&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Herreklipp Linda"><span class="service-board__txt">Herreklipp Linda</span><span class="service-board__price">fra 650&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Herreklipp og skjegg"><span class="service-board__txt">Herreklipp og skjegg</span><span class="service-board__price">fra 950&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Skin fade"><span class="service-board__txt">Skin fade</span><span class="service-board__price">fra 680&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Skjegg"><span class="service-board__txt">Skjegg</span><span class="service-board__price">fra 300&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Herreklipp"><span class="service-board__txt">Herreklipp</span><span class="service-board__price">fra 620&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Barneklipp t.o.m 10år"><span class="service-board__txt">Barneklipp t.o.m 10år</span><span class="service-board__price">fra 500&nbsp;kr</span></button></li>
+              </ul>
+              </div>
+            </details>
+
+            <details class="service-subgroup">
+              <summary class="service-subgroup__summary">
+                <span class="service-subgroup__title">Farge &amp; folie</span>
+                <span class="service-subgroup__chev" aria-hidden="true"></span>
+              </summary>
+              <div class="service-subgroup__inner">
+              <ul class="service-board__list">
+                <li><button type="button" class="service-board__row" data-book-service="Farge kort hår fra"><span class="service-board__txt">Farge kort hår fra</span><span class="service-board__price">fra 990&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Farge halvlangt hår fra"><span class="service-board__txt">Farge halvlangt hår fra</span><span class="service-board__price">fra 1&nbsp;500&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Farge langt hår fra"><span class="service-board__txt">Farge langt hår fra</span><span class="service-board__price">fra 1&nbsp;890&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Folie kort hår fra"><span class="service-board__txt">Folie kort hår fra</span><span class="service-board__price">fra 1&nbsp;400&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Folie halvlangt hår fra"><span class="service-board__txt">Folie halvlangt hår fra</span><span class="service-board__price">fra 1&nbsp;700&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Folie langt hår fra"><span class="service-board__txt">Folie langt hår fra</span><span class="service-board__price">fra 2&nbsp;100&nbsp;kr</span></button></li>
+              </ul>
+              </div>
+            </details>
+
+            <details class="service-subgroup">
+              <summary class="service-subgroup__summary">
+                <span class="service-subgroup__title">Signatur &amp; striper</span>
+                <span class="service-subgroup__chev" aria-hidden="true"></span>
+              </summary>
+              <div class="service-subgroup__inner">
+              <ul class="service-board__list">
+                <li><button type="button" class="service-board__row service-board__row--featured" data-book-service="Leni's signatur behandling fra"><span class="service-board__txt">Leni's signatur behandling fra</span><span class="service-board__price">fra 2&nbsp;000&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="striper kort hår fra"><span class="service-board__txt">striper kort hår fra</span><span class="service-board__price">fra 1&nbsp;090&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="striper halvlangt hår fra"><span class="service-board__txt">striper halvlangt hår fra</span><span class="service-board__price">fra 1&nbsp;700&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="striper langt hår fra"><span class="service-board__txt">striper langt hår fra</span><span class="service-board__price">fra 2&nbsp;090&nbsp;kr</span></button></li>
+              </ul>
+              </div>
+            </details>
+
+            <details class="service-subgroup">
+              <summary class="service-subgroup__summary">
+                <span class="service-subgroup__title">Bryn &amp; vipper</span>
+                <span class="service-subgroup__chev" aria-hidden="true"></span>
+              </summary>
+              <div class="service-subgroup__inner">
+              <ul class="service-board__list">
+                <li><button type="button" class="service-board__row" data-book-service="Farge bryn"><span class="service-board__txt">Farge bryn</span><span class="service-board__price">fra 230&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Farge vipper"><span class="service-board__txt">Farge vipper</span><span class="service-board__price">fra 275&nbsp;kr</span></button></li>
+              </ul>
+              </div>
+            </details>
+          </article>
+
+          <article class="service-panel reveal reveal--delay-1">
+            <header class="service-panel__head">
+              <span class="service-panel__mark" aria-hidden="true">◇</span>
+              <div class="service-panel__intro">
+                <h3 class="service-panel__title">Bryn, hull &amp; pakker</h3>
+                <p class="service-panel__dek">Piercing og kombinasjoner med klipp/føn.</p>
+              </div>
+            </header>
+
+            <details class="service-subgroup">
+              <summary class="service-subgroup__summary">
+                <span class="service-subgroup__title">Bryn &amp; piercing</span>
+                <span class="service-subgroup__chev" aria-hidden="true"></span>
+              </summary>
+              <div class="service-subgroup__inner">
+              <ul class="service-board__list">
+                <li><button type="button" class="service-board__row" data-book-service="Nappe bryn"><span class="service-board__txt">Nappe bryn</span><span class="service-board__price">fra 200&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Hull i ørene"><span class="service-board__txt">Hull i ørene</span><span class="service-board__price">fra 600&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Hull i ett øre"><span class="service-board__txt">Hull i ett øre</span><span class="service-board__price">fra 300&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Hull i nesen"><span class="service-board__txt">Hull i nesen</span><span class="service-board__price">fra 400&nbsp;kr</span></button></li>
+              </ul>
+              </div>
+            </details>
+
+            <details class="service-subgroup">
+              <summary class="service-subgroup__summary">
+                <span class="service-subgroup__title">Klipp/føn + farge eller folie</span>
+                <span class="service-subgroup__chev" aria-hidden="true"></span>
+              </summary>
+              <div class="service-subgroup__inner">
+              <ul class="service-board__list">
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn og farge kort hår fra"><span class="service-board__txt">Klipp/føn og farge kort hår fra</span><span class="service-board__price">fra 1&nbsp;940&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn og farge halvlangt hår fra"><span class="service-board__txt">Klipp/føn og farge halvlangt hår fra</span><span class="service-board__price">fra 2&nbsp;450&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn og farge langt hår fra"><span class="service-board__txt">Klipp/føn og farge langt hår fra</span><span class="service-board__price">fra 2&nbsp;840&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn og folie kort hår fra"><span class="service-board__txt">Klipp/føn og folie kort hår fra</span><span class="service-board__price">fra 2&nbsp;350&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn og folie halvlangt hår fra"><span class="service-board__txt">Klipp/føn og folie halvlangt hår fra</span><span class="service-board__price">fra 2&nbsp;650&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn og folie langt hår fra"><span class="service-board__txt">Klipp/føn og folie langt hår fra</span><span class="service-board__price">fra 3&nbsp;050&nbsp;kr</span></button></li>
+              </ul>
+              </div>
+            </details>
+
+            <details class="service-subgroup">
+              <summary class="service-subgroup__summary">
+                <span class="service-subgroup__title">Klipp/føn + hettestriper</span>
+                <span class="service-subgroup__chev" aria-hidden="true"></span>
+              </summary>
+              <div class="service-subgroup__inner">
+              <ul class="service-board__list">
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn og hettestriper kort hår fra"><span class="service-board__txt">Klipp/føn og hettestriper kort hår fra</span><span class="service-board__price">fra 2&nbsp;040&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn og hettestriper halvlangt hår fra"><span class="service-board__txt">Klipp/føn og hettestriper halvlangt hår fra</span><span class="service-board__price">fra 2&nbsp;650&nbsp;kr</span></button></li>
+                <li><button type="button" class="service-board__row" data-book-service="Klipp/føn og hettestriper langt hår fra"><span class="service-board__txt">Klipp/føn og hettestriper langt hår fra</span><span class="service-board__price">fra 3&nbsp;040&nbsp;kr</span></button></li>
+              </ul>
+              </div>
+            </details>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section section--dark quote-strip reviews-strip reveal"
+      id="anmeldelser"
+      aria-labelledby="reviews-strip-heading"
+    >
+      <div class="wrap reviews-strip__wrap">
+        <header class="reviews-strip__header">
+          <p class="reviews-strip__eyebrow">Google</p>
+          <h2 id="reviews-strip-heading" class="reviews-strip__heading">Kunder om Virvel</h2>
+          <div class="reviews-strip__summary">
+            <span class="reviews-strip__score" id="reviews-google-score">4,8</span>
+            <span class="reviews-strip__stars" aria-hidden="true">★★★★★</span>
+            <span class="reviews-strip__count" id="reviews-google-count">25+ anmeldelser</span>
+            <a
+              class="reviews-strip__maps-link"
+              id="reviews-google-link"
+              href="https://www.google.com/maps/search/?api=1&amp;query=Virvel+Narvik+AS+Kirkegata+34+Narvik"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Se på Google Maps</a
+            >
+          </div>
+        </header>
+
+        <div
+          class="reviews-carousel"
+          id="reviews-carousel"
+          role="region"
+          aria-roledescription="karusell"
+          aria-label="Anmeldelser fra Google"
+          tabindex="0"
+        >
+          <button type="button" class="reviews-carousel__arrow reviews-carousel__arrow--prev" data-reviews-prev aria-label="Forrige anmeldelse">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <div class="reviews-carousel__viewport">
+            <ul class="reviews-carousel__track" id="reviews-track"></ul>
+          </div>
+          <button type="button" class="reviews-carousel__arrow reviews-carousel__arrow--next" data-reviews-next aria-label="Neste anmeldelse">
+            <span aria-hidden="true">›</span>
+          </button>
+          <div class="reviews-carousel__dots" id="reviews-dots" role="tablist" aria-label="Velg anmeldelse"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="om-oss">
+      <div class="wrap grid-two grid-two--flip">
+        <figure class="ratio reveal">
+          <img
+            src="css/2.PNG"
+            alt="Inne hos Virvel — speil og arbeidsplass"
+            width="900"
+            height="675"
+            loading="lazy"
+          />
+        </figure>
+        <div class="prose reveal reveal--delay-1">
+          <p class="section__eyebrow">Om studioet</p>
+          <h2 class="section__title">God plass og rolig lys</h2>
+          <p>
+            Lokalet ligger sentralt: rolig lys, litt avstand mellom stolene og plass til å lande før du går ut igjen.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <span class="stat__num">15+</span>
+              <span class="stat__label">år i drift</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">6</span>
+              <span class="stat__label">på teamet</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">4,8</span>
+              <span class="stat__label">på Google</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="section__eyebrow">Menneskene bak</p>
+          <h2 class="section__title">Vårt team</h2>
+          <p class="section__intro">
+            Trykk på et navn for et kort om hvem det er — eller ring oss, så anbefaler vi noen som passer det du vil ha gjort.
+          </p>
+        </header>
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <button type="button" class="team-card__btn team-card__btn--nameonly" data-team-open="leni" aria-label="Les mer om Leni">
+              <span class="team-card__name team-card__name--only">Leni</span>
+            </button>
+          </article>
+          <article class="team-card reveal">
+            <button type="button" class="team-card__btn team-card__btn--nameonly" data-team-open="linda" aria-label="Les mer om Linda">
+              <span class="team-card__name team-card__name--only">Linda</span>
+            </button>
+          </article>
+          <article class="team-card reveal">
+            <button type="button" class="team-card__btn team-card__btn--nameonly" data-team-open="janeth" aria-label="Les mer om Janeth">
+              <span class="team-card__name team-card__name--only">Janeth</span>
+            </button>
+          </article>
+          <article class="team-card reveal">
+            <button type="button" class="team-card__btn team-card__btn--nameonly" data-team-open="camilla" aria-label="Les mer om Camilla">
+              <span class="team-card__name team-card__name--only">Camilla</span>
+            </button>
+          </article>
+          <article class="team-card reveal">
+            <button type="button" class="team-card__btn team-card__btn--nameonly" data-team-open="berit" aria-label="Les mer om Berit">
+              <span class="team-card__name team-card__name--only">Berit</span>
+            </button>
+          </article>
+          <article class="team-card reveal">
+            <button type="button" class="team-card__btn team-card__btn--nameonly" data-team-open="ragnhild" aria-label="Les mer om Ragnhild">
+              <span class="team-card__name team-card__name--only">Ragnhild</span>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--gallery" id="galleri">
+      <div class="wrap gallery-wrap">
+        <header class="section-head section-head--gallery reveal">
+          <p class="section__eyebrow section__eyebrow--gallery">Bilder</p>
+          <h2 class="section__title section__title--gallery">Galleri</h2>
+          <p class="section__intro section__intro--gallery">
+            Noen bilder fra oss — trykk for å se større.
+          </p>
+          <div class="gallery-meta" aria-label="Galleri-info">
+            <span class="gallery-meta__pill">Fra salongen</span>
+            <span class="gallery-meta__dot" aria-hidden="true"></span>
+            <span class="gallery-meta__note">Tatt hos Virvel</span>
+          </div>
+        </header>
+        <div class="gallery gallery--editorial reveal">
+          <button type="button" class="gallery__cell" data-gallery-index="0">
+            <img src="css/3.PNG" alt="Arbeid fra Virvel, bilde 1" width="1200" height="900" loading="lazy" decoding="async" />
+          </button>
+          <button type="button" class="gallery__cell" data-gallery-index="1">
+            <img src="css/4.PNG" alt="Arbeid fra Virvel, bilde 2" width="1200" height="900" loading="lazy" decoding="async" />
+          </button>
+          <button type="button" class="gallery__cell" data-gallery-index="2">
+            <img src="css/5.PNG" alt="Arbeid fra Virvel, bilde 3" width="1200" height="900" loading="lazy" decoding="async" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cta reveal" aria-labelledby="cta-title">
+      <div class="cta-wave cta-wave--top" aria-hidden="true">
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            class="cta-wave__fill"
+            d="M0,34 C240,12 480,52 720,34 C960,16 1200,52 1440,34 L1440,0 L0,0 Z"
+          />
+        </svg>
+      </div>
+      <div class="cta-wave cta-wave--glow" aria-hidden="true"></div>
+
+      <div class="wrap cta-shell">
+        <div class="cta-shell__accent" aria-hidden="true"></div>
+        <div class="cta-banner">
+          <div class="cta-banner__text">
+            <h2 id="cta-title" class="cta-banner__title">Klar for noe nytt?</h2>
+            <p class="cta-banner__lead">Vil du bare snakke litt før vi setter i gang? Si fra — vi avsetter tid.</p>
+          </div>
+          <button type="button" class="btn btn--light btn--lg cta-banner__btn" data-open-booking>Bestill time</button>
+        </div>
+
+        <div class="booking-howto" aria-labelledby="booking-howto-title">
+          <p class="booking-howto__kicker">Booking</p>
+          <h3 id="booking-howto-title" class="booking-howto__title">Tre steg</h3>
+          <ol class="booking-howto__steps">
+            <li class="booking-howto__step">
+              <span class="booking-howto__bubble" aria-hidden="true">1</span>
+              <p class="booking-howto__text"><strong>Velg behandling</strong> — «Bestill time», deretter den tjenesten du trenger (eller åpne hele booking om du vil).</p>
+            </li>
+            <li class="booking-howto__step">
+              <span class="booking-howto__bubble" aria-hidden="true">2</span>
+              <p class="booking-howto__text"><strong>Finn tid</strong> — stylist og klokkeslett som passer.</p>
+            </li>
+            <li class="booking-howto__step">
+              <span class="booking-howto__bubble" aria-hidden="true">3</span>
+              <p class="booking-howto__text"><strong>Bekreft</strong> — du får mail. Da vet vi at du kommer.</p>
+            </li>
+          </ol>
+          <p class="booking-howto__hint">Bare nysgjerrig på ledige timer? Åpne booking og se rundt — du må ikke fullføre med én gang.</p>
+        </div>
+      </div>
+
+      <div class="cta-wave cta-wave--bottom" aria-hidden="true">
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            class="cta-wave__fill cta-wave__fill--bottom"
+            d="M0,22 C240,44 480,6 720,22 C960,40 1200,6 1440,22 L1440,56 L0,56 Z"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="footer-kontakt">
+      <div class="wrap grid-contact">
+        <div class="contact-block reveal">
+          <h2 class="section__title">Kontakt oss</h2>
+          <address class="contact-block__address">
+            <strong>Virvel frisør</strong><br />
+            Kongens gate 15<br />
+            8514 Narvik
+          </address>
+          <p class="contact-block__row">
+            <span class="contact-block__label">Telefon</span>
+            <a href="tel:+4776941200">76 94 12 00</a>
+          </p>
+          <p class="contact-block__row">
+            <span class="contact-block__label">E-post</span>
+            <a href="mailto:hei@virvel.no">hei@virvel.no</a>
+          </p>
+          <div class="hours">
+            <h3 class="hours__title">Åpningstider</h3>
+            <ul class="hours__list">
+              <li><span>Mandag</span><span>09–18</span></li>
+              <li><span>Tirsdag</span><span>09–20</span></li>
+              <li><span>Onsdag</span><span>09–20</span></li>
+              <li><span>Torsdag</span><span>09–20</span></li>
+              <li><span>Fredag</span><span>09–19</span></li>
+              <li><span>Lørdag</span><span>10–16</span></li>
+              <li><span>Søndag</span><span>Stengt</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="map-wrap reveal reveal--delay-1">
+          <div id="salon-map" class="map-wrap__leaflet" role="img" aria-label="Kart — Virvel frisør, Kongens gate 15, Narvik"></div>
+          <a
+            class="map-wrap__link"
+            href="https://www.google.com/maps/search/?api=1&amp;query=Virvel+frisør+Kongens+gate+15+8514+Narvik"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Åpne i Google Maps</a
+          >
+        </div>
+      </div>
+
+      <div class="wrap section--form">
+        <div class="form-card reveal">
+          <h3 class="form-card__title">Send oss en melding</h3>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <label for="cf-name">Navn</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required minlength="2" placeholder="Ditt navn" />
+              <span class="field-error" data-error-for="cf-name"></span>
+            </div>
+            <div class="form-row">
+              <label for="cf-email">E-post</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="deg@eksempel.no" />
+              <span class="field-error" data-error-for="cf-email"></span>
+            </div>
+            <div class="form-row">
+              <label for="cf-msg">Melding</label>
+              <textarea id="cf-msg" name="message" rows="4" required minlength="10" placeholder="Skriv kort hva du ønsker ..."></textarea>
+              <span class="field-error" data-error-for="cf-msg"></span>
+            </div>
+            <button type="submit" class="btn btn--primary">Send melding</button>
+            <p class="form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__grid">
+      <div class="site-footer__brand">
+        <span class="logo logo--footer">
+          <span class="logo__mark">V</span>
+          <span class="logo__text">Virvel<span class="logo__sub">frisør</span></span>
+        </span>
+        <p class="site-footer__tagline">Frisør · Narvik</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Bunnmeny">
+        <a href="#tjenester">Tjenester</a>
+        <a href="#team">Team</a>
+        <a href="#galleri">Galleri</a>
+        <a href="#footer-kontakt">Kontakt</a>
+      </nav>
+      <div class="site-footer__social">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+      </div>
+    </div>
+    <div class="wrap site-footer__bottom">
+      <p>© <span id="year"></span> Virvel frisør. Alle rettigheter forbeholdt.</p>
+    </div>
+  </footer>
+
+  <!-- Booking modal (embedded bestille.no) -->
+  <div class="modal" id="modal-booking" role="dialog" aria-modal="true" aria-labelledby="modal-booking-title" hidden>
+    <div class="modal__backdrop" data-close-modal tabindex="-1"></div>
+    <div class="modal__dialog modal__dialog--booking-embed">
+      <button type="button" class="modal__close" data-close-modal aria-label="Lukk">&times;</button>
+      <header class="booking-embed__head">
+        <p class="booking-embed__eyebrow" id="modal-booking-eyebrow">Virvel</p>
+        <h2 id="modal-booking-title" class="booking-embed__title">Bestill time</h2>
+      </header>
+
+      <div class="booking-hub" id="booking-hub" hidden>
+        <div class="booking-hub__stage">
+          <div class="booking-hub__curtain" aria-hidden="true">
+            <div class="booking-hub__curtain-inner">
+              <span class="booking-hub__curtain-mark">Virvel</span>
+              <span class="booking-hub__curtain-sub">Finn behandling · se pris · book</span>
+              <span class="booking-hub__curtain-line" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="booking-hub__body">
+            <label class="booking-hub__filter-label" for="booking-hub-filter">Søk blant tjenester</label>
+            <input
+              id="booking-hub-filter"
+              class="booking-hub__filter"
+              type="search"
+              placeholder="Søk: klipp, farge, folie …"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <div id="booking-hub-sections" class="booking-hub__sections"></div>
+            <div class="booking-hub__footer">
+              <button type="button" class="booking-hub__btn-all" id="booking-hub-open-full">
+                Åpne hele booking uten å velge tjeneste
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-embed-panel" id="booking-embed-panel">
+        <p class="modal__lead booking-embed__lead">
+          Du booker i systemet vårt her. Funker ikke vinduet som det skal, åpner du samme booking i ny fane.
+        </p>
+        <div class="booking-embed__toolbar">
+          <a class="booking-embed__tab-link" id="booking-open-tab" href="https://frisorvirvel.bestille.no/OnCust2/#!/booking" target="_blank" rel="noopener noreferrer">Åpne i ny fane</a>
+        </div>
+        <div class="booking-embed__frame-wrap" id="booking-frame-wrap" aria-busy="false">
+          <iframe
+            class="booking-embed__frame"
+            id="booking-iframe"
+            title="Online booking — Virvel frisør"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="about:blank"
+          ></iframe>
+          <div class="booking-embed__loading" id="booking-embed-loading" hidden aria-hidden="true">
+            <div class="booking-embed__loading-inner">
+              <div class="booking-embed__loader" aria-hidden="true">
+                <span class="booking-embed__loader-ring"></span>
+                <span class="booking-embed__loader-ring booking-embed__loader-ring--delayed"></span>
+              </div>
+              <p class="booking-embed__loading-text">Laster booking&nbsp;…</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team bios -->
+  <div class="modal" id="modal-team" role="dialog" aria-modal="true" aria-labelledby="modal-team-title" hidden>
+    <div class="modal__backdrop" data-close-modal tabindex="-1"></div>
+    <div class="modal__dialog modal__dialog--narrow modal__dialog--team">
+      <button type="button" class="modal__close" data-close-modal aria-label="Lukk">&times;</button>
+      <p class="modal-team__eyebrow">Mer om</p>
+      <h2 id="modal-team-title" class="modal__title modal-team__title"></h2>
+      <div class="modal-team__quote">
+        <p id="modal-team-body" class="modal__body modal-team__text"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox__close" aria-label="Lukk bilde">&times;</button>
+    <button type="button" class="lightbox__prev" aria-label="Forrige bilde">‹</button>
+    <button type="button" class="lightbox__next" aria-label="Neste bilde">›</button>
+    <img class="lightbox__img" alt="" src="" width="1200" height="900" />
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
