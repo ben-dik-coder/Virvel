@@ -1,5 +1,5 @@
 {
-  "name": "virvel-frisor",
+  "name": "fame-hardesign-narvik",
   "private": true,
   "scripts": {
     "start": "npx --yes serve . -p 3333"

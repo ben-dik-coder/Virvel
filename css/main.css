@@ -1,4 +1,4 @@
-/* Virvel frisør — premium salon UI */
+/* Fame Hårdesign — premium salon UI */
 
 :root {
   --bg: #f7f5f2;
@@ -613,7 +613,7 @@ img {
   inset: 0;
   background:
     linear-gradient(135deg, rgba(28, 25, 23, 0.15), transparent 45%),
-    url("https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=85") center / cover no-repeat;
+    url("gallery/hero-enhanced.jpg") center / cover no-repeat;
 }
 
 .hero__veil {
@@ -2059,6 +2059,14 @@ details.service-subgroup[open] .service-subgroup__chev {
   content: "Look 03";
 }
 
+.gallery__cell:nth-child(4)::after {
+  content: "Look 04";
+}
+
+.gallery__cell:nth-child(5)::after {
+  content: "Look 05";
+}
+
 .gallery__cell:hover {
   transform: translateY(-6px);
   box-shadow:
@@ -2102,6 +2110,8 @@ details.service-subgroup[open] .service-subgroup__chev {
 .gallery__cell:nth-child(1),
 .gallery__cell:nth-child(2),
 .gallery__cell:nth-child(3),
+.gallery__cell:nth-child(4),
+.gallery__cell:nth-child(5),
 .gallery__cell--wide {
   grid-column: span 1;
   grid-row: span 1;
@@ -2112,6 +2122,11 @@ details.service-subgroup[open] .service-subgroup__chev {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(170px, 34vw);
     gap: 0.75rem;
+  }
+
+  .gallery__cell:nth-child(4),
+  .gallery__cell:nth-child(5) {
+    grid-column: span 1;
   }
 
   .gallery-meta {
@@ -2193,7 +2208,7 @@ details.service-subgroup[open] .service-subgroup__chev {
   }
 }
 
-/* CTA — rolig bølge + avrundet kort (samme uttrykk som resten av Virvel) */
+/* CTA — rolig bølge + avrundet kort (samme uttrykk som resten av Fame) */
 .section.section--cta {
   position: relative;
   padding: 0;

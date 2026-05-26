@@ -80,79 +80,21 @@
   }
 
   /* -------- Booking modal (iframe bestille.no) -------- */
-  var BASE_BOOKING = "https://frisorvirvel.bestille.no/OnCust2/#!/booking";
+  var BASE_BOOKING = "https://fixit.no/booking/1310/behandlinger";
 
-  /** Synket med /OnCust2/api/Service — nøkkel må matche data-book-service eksakt */
-  var SERVICE_MAP = {
-    "Klipp/føn": { serviceId: 38, isCombined: false },
-    "Herreklipp Linda": { serviceId: 60, isCombined: false },
-    "Herreklipp og skjegg": { serviceId: 66, isCombined: false },
-    "Skin fade": { serviceId: 58, isCombined: false },
-    Skjegg: { serviceId: 59, isCombined: false },
-    Herreklipp: { serviceId: 39, isCombined: false },
-    "Barneklipp t.o.m 10år": { serviceId: 40, isCombined: false },
-    "Farge kort hår fra": { serviceId: 41, isCombined: false },
-    "Farge halvlangt hår fra": { serviceId: 42, isCombined: false },
-    "Farge langt hår fra": { serviceId: 43, isCombined: false },
-    "Folie kort hår fra": { serviceId: 44, isCombined: false },
-    "Folie halvlangt hår fra": { serviceId: 45, isCombined: false },
-    "Folie langt hår fra": { serviceId: 46, isCombined: false },
-    "Leni's signatur behandling fra": { serviceId: 57, isCombined: false },
-    "striper kort hår fra": { serviceId: 47, isCombined: false },
-    "striper halvlangt hår fra": { serviceId: 48, isCombined: false },
-    "striper langt hår fra": { serviceId: 49, isCombined: false },
-    "Farge bryn": { serviceId: 51, isCombined: false },
-    "Farge vipper": { serviceId: 52, isCombined: false },
-    "Nappe bryn": { serviceId: 53, isCombined: false },
-    "Hull i ørene": { serviceId: 61, isCombined: false },
-    "Hull i ett øre": { serviceId: 62, isCombined: false },
-    "Hull i nesen": { serviceId: 63, isCombined: false },
-    "Klipp/føn og farge kort hår fra": { serviceId: 11, isCombined: true },
-    "Klipp/føn og farge halvlangt hår fra": { serviceId: 13, isCombined: true },
-    "Klipp/føn og farge langt hår fra": { serviceId: 14, isCombined: true },
-    "Klipp/føn og folie kort hår fra": { serviceId: 12, isCombined: true },
-    "Klipp/føn og folie halvlangt hår fra": { serviceId: 15, isCombined: true },
-    "Klipp/føn og folie langt hår fra": { serviceId: 16, isCombined: true },
-    "Klipp/føn og hettestriper kort hår fra": { serviceId: 10, isCombined: true },
-    "Klipp/føn og hettestriper halvlangt hår fra": { serviceId: 17, isCombined: true },
-    "Klipp/føn og hettestriper langt hår fra": { serviceId: 18, isCombined: true },
-  };
-
-  var BOOKING_SERVICE_API = "https://frisorvirvel.bestille.no/OnCust2/api/Service";
+  var BOOKING_SERVICE_API = "";
   /** Synket mot Service API — brukes hvis nettleseren ikke får hentet API (CORS / offline) */
   var BOOKING_HUB_ROWS = [
-    { name: "Klipp/føn", price: 950, duration: 60, isCombined: false, sort: 34 },
-    { name: "Herreklipp Linda", price: 650, duration: 60, isCombined: false, sort: 35 },
-    { name: "Herreklipp og skjegg", price: 950, duration: 90, isCombined: false, sort: 35 },
-    { name: "Skin fade", price: 680, duration: 60, isCombined: false, sort: 36 },
-    { name: "Skjegg", price: 300, duration: 45, isCombined: false, sort: 36 },
-    { name: "Herreklipp", price: 620, duration: 30, isCombined: false, sort: 36 },
-    { name: "Barneklipp t.o.m 10år", price: 500, duration: 45, isCombined: false, sort: 37 },
-    { name: "Farge kort hår fra", price: 990, duration: 90, isCombined: false, sort: 38 },
-    { name: "Farge halvlangt hår fra", price: 1500, duration: 90, isCombined: false, sort: 39 },
-    { name: "Farge langt hår fra", price: 1890, duration: 120, isCombined: false, sort: 40 },
-    { name: "Folie kort hår fra", price: 1400, duration: 120, isCombined: false, sort: 41 },
-    { name: "Folie halvlangt hår fra", price: 1700, duration: 150, isCombined: false, sort: 42 },
-    { name: "Folie langt hår fra", price: 2100, duration: 150, isCombined: false, sort: 43 },
-    { name: "Leni's signatur behandling fra", price: 2000, duration: 180, isCombined: false, sort: 43 },
-    { name: "striper kort hår fra", price: 1090, duration: 90, isCombined: false, sort: 44 },
-    { name: "striper halvlangt hår fra", price: 1700, duration: 120, isCombined: false, sort: 45 },
-    { name: "striper langt hår fra", price: 2090, duration: 150, isCombined: false, sort: 46 },
-    { name: "Farge bryn", price: 230, duration: 15, isCombined: false, sort: 48 },
-    { name: "Farge vipper", price: 275, duration: 15, isCombined: false, sort: 49 },
-    { name: "Nappe bryn", price: 200, duration: 15, isCombined: false, sort: 50 },
-    { name: "Hull i ørene", price: 600, duration: 15, isCombined: false, sort: 50 },
-    { name: "Hull i ett øre", price: 300, duration: 15, isCombined: false, sort: 50 },
-    { name: "Hull i nesen", price: 400, duration: 15, isCombined: false, sort: 50 },
-    { name: "Klipp/føn og farge kort hår fra", price: 1940, duration: 150, isCombined: true, sort: 51 },
-    { name: "Klipp/føn og farge halvlangt hår fra", price: 2450, duration: 150, isCombined: true, sort: 52 },
-    { name: "Klipp/føn og farge langt hår fra", price: 2840, duration: 180, isCombined: true, sort: 53 },
-    { name: "Klipp/føn og folie kort hår fra", price: 2350, duration: 180, isCombined: true, sort: 54 },
-    { name: "Klipp/føn og folie halvlangt hår fra", price: 2650, duration: 210, isCombined: true, sort: 55 },
-    { name: "Klipp/føn og folie langt hår fra", price: 3050, duration: 210, isCombined: true, sort: 56 },
-    { name: "Klipp/føn og hettestriper kort hår fra", price: 2040, duration: 150, isCombined: true, sort: 57 },
-    { name: "Klipp/føn og hettestriper halvlangt hår fra", price: 2650, duration: 180, isCombined: true, sort: 58 },
-    { name: "Klipp/føn og hettestriper langt hår fra", price: 3040, duration: 210, isCombined: true, sort: 59 },
+    { name: "Dameklipp", price: 890, duration: 60, isCombined: false, sort: 10 },
+    { name: "Herreklipp", price: 690, duration: 45, isCombined: false, sort: 11 },
+    { name: "Barneklipp", price: 550, duration: 45, isCombined: false, sort: 12 },
+    { name: "Farge kort hår", price: 1100, duration: 90, isCombined: false, sort: 20 },
+    { name: "Farge langt hår", price: 1900, duration: 120, isCombined: false, sort: 21 },
+    { name: "Balayage / folie", price: 1800, duration: 150, isCombined: false, sort: 22 },
+    { name: "Keratin Sweeteez kort hår", price: 3800, duration: 180, isCombined: false, sort: 30 },
+    { name: "Keratin Sweeteez langt hår", price: 6700, duration: 300, isCombined: false, sort: 31 },
+    { name: "Hull i ørene", price: 600, duration: 20, isCombined: false, sort: 40 },
+    { name: "Extension konsultasjon", price: 0, duration: 30, isCombined: false, sort: 50 },
   ];
 
   var modalBooking = document.getElementById("modal-booking");
@@ -291,7 +233,6 @@
     for (i = 0; i < apiRows.length; i++) {
       var r = apiRows[i];
       if (!r.bookingAllowed || !r.visible) continue;
-      if (!SERVICE_MAP[r.name]) continue;
       out.push({
         name: r.name,
         price: r.price,
@@ -412,33 +353,24 @@
       if (modalBookingEyebrow) modalBookingEyebrow.textContent = "Bestill";
       if (modalBookingTitle) modalBookingTitle.textContent = prefillService;
     } else {
-      if (modalBookingEyebrow) modalBookingEyebrow.textContent = "Virvel";
+      if (modalBookingEyebrow) modalBookingEyebrow.textContent = "Fame";
       if (modalBookingTitle) modalBookingTitle.textContent = "Bestill time";
     }
   }
 
-  function loadBookingIframe(prefillService) {
+  function openFixitBooking(prefillService) {
     var url = buildBookingUrl(prefillService || "");
-    var iframeNeedsNavigate = bookingIframe && lastBookingSrc !== url;
-    if (bookingOpenTab) {
-      bookingOpenTab.href = url;
-    }
-    if (bookingIframe && iframeNeedsNavigate) {
-      showBookingLoader();
-      bookingIframe.src = url;
-      lastBookingSrc = url;
-    }
+    if (bookingOpenTab) bookingOpenTab.href = url;
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+
+  function loadBookingIframe(prefillService) {
+    openFixitBooking(prefillService || "");
   }
 
   function proceedBookingFromHub(serviceName) {
-    if (bookingHub) bookingHub.hidden = true;
-    if (bookingEmbedPanel) bookingEmbedPanel.hidden = false;
-    applyBookingHeading(serviceName || "");
-    loadBookingIframe(serviceName || "");
-    var dlg = modalBooking ? modalBooking.querySelector(".modal__dialog--booking-embed") : null;
-    if (dlg) dlg.scrollTop = 0;
-    var cb = modalBooking ? modalBooking.querySelector(".modal__close") : null;
-    if (cb && typeof cb.focus === "function") cb.focus();
+    openFixitBooking(serviceName || "");
+    closeBooking();
   }
 
   function bookingHubSkeletonHtml() {
@@ -464,20 +396,7 @@
       return;
     }
 
-    bookingHubSections.innerHTML = bookingHubSkeletonHtml();
-    fetch(BOOKING_SERVICE_API, { credentials: "omit", mode: "cors" })
-      .then(function (r) {
-        if (!r.ok) throw new Error("api");
-        return r.json();
-      })
-      .then(function (data) {
-        var rows = normalizeHubRowsFromApi(data);
-        if (!rows.length) throw new Error("empty");
-        finish(rows);
-      })
-      .catch(function () {
-        finish(BOOKING_HUB_ROWS.slice());
-      });
+    finish(BOOKING_HUB_ROWS.slice());
   }
 
   function startBookingHubIntro() {
@@ -511,19 +430,9 @@
     );
   }
 
-  /** booking URL må bruke samme searchType som avdelingen (API: Department/GetPreferences → cust2016_DefaultSearchMethod = quick2) */
   function buildBookingUrl(prefillService) {
     if (!prefillService) return BASE_BOOKING;
-    var spec = SERVICE_MAP[prefillService];
-    if (!spec) return BASE_BOOKING;
-    /* 0/1 — ikke true/false i URL: ui-router tolker strengen "false" som bool true, og API-kallet feiler */
-    return (
-      BASE_BOOKING +
-      "?searchType=quick2&serviceId=" +
-      encodeURIComponent(spec.serviceId) +
-      "&isCombined=" +
-      (spec.isCombined ? "1" : "0")
-    );
+    return BASE_BOOKING;
   }
 
   function openBooking(prefillService) {
@@ -543,12 +452,8 @@
         ensureBookingHubData();
       }
     } else {
-      if (bookingHub) bookingHub.hidden = true;
-      if (bookingEmbedPanel) bookingEmbedPanel.hidden = false;
-      applyBookingHeading(prefillService);
-      loadBookingIframe(prefillService);
-      var dlgOpen = modalBooking.querySelector(".modal__dialog--booking-embed");
-      if (dlgOpen) dlgOpen.scrollTop = 0;
+      openFixitBooking(prefillService);
+      return;
     }
 
     modalBooking.hidden = false;
@@ -713,35 +618,35 @@
 
   /* -------- Team modal -------- */
   var TEAM = {
-    leni: {
-      title: "Leni",
+    annkatrin: {
+      title: "Ann-Katrin",
       body:
-        "Leni gjør alt fra klipp og farge til folie og striper — og ja, hun har «Leni's signatur». Liker å snakke seg fram til noe som henger sammen, ikke bare én isolert ting.",
+        "Daglig leder på Fame i Narvik. Hun sørger for at du blir tatt godt imot og at salongen går som den skal.",
     },
-    linda: {
-      title: "Linda",
+    grete: {
+      title: "Grete",
       body:
-        "Mange kjenner henne fra «Herreklipp Linda» i booking. Linda tar også farge og piercing, så det er lov å komme med flere ønsker på én time.",
+        "Erfaren frisør med bred erfaring i klipp, farge og styling. Spør gjerne om råd til hverdagslook eller fest.",
     },
-    janeth: {
-      title: "Janeth",
+    susana: {
+      title: "Susana",
       body:
-        "Janeth tar seg god tid til å forstå hva du vil — og er grundig mens hun holder på.",
+        "Jobber med klipp og farge, og liker å finne løsninger som passer håret og livsstilen din.",
     },
-    camilla: {
-      title: "Camilla",
+    amanda: {
+      title: "Amanda",
       body:
-        "Camilla jobber mest med klipp og styling som passer deg og håret ditt i hverdagen.",
+        "Tar imot barn, ungdom og voksne — fra enkel klipp til mer avansert farging og styling.",
     },
-    berit: {
-      title: "Berit",
+    kristine: {
+      title: "Kristine",
       body:
-        "Berit er med på alt som skal på plass i salongen, sammen med de andre — slik at dere som kommer inn slipper surr.",
+        "Flinke hender på både klipp og fargeteknikker — gjerne balayage og folie.",
     },
-    ragnhild: {
-      title: "Ragnhild",
+    shahnaz: {
+      title: "Shahnaz",
       body:
-        "Ragnhild er med på laget og passer på at du blir tatt imot og ivaretatt mens du er her.",
+        "Hjelper deg med alt fra klipp til behandlinger som gir håret mer glans og mindre frizz.",
     },
   };
 
@@ -785,8 +690,20 @@
   }
 
   /* -------- Gallery lightbox -------- */
-  var GALLERY_SRC = ["css/3.PNG", "css/4.PNG", "css/5.PNG"];
-  var GALLERY_ALT = ["Arbeid fra Virvel, bilde 1", "Arbeid fra Virvel, bilde 2", "Arbeid fra Virvel, bilde 3"];
+  var GALLERY_SRC = [
+    "css/gallery/fame-1-enhanced.jpg",
+    "css/gallery/fame-2-enhanced.jpg",
+    "css/gallery/fame-5-enhanced.jpg",
+    "css/gallery/welcome-enhanced.jpg",
+    "css/gallery/om-oss-enhanced.jpg",
+  ];
+  var GALLERY_ALT = [
+    "Fame Hårdesign, bilde 1",
+    "Fame Hårdesign, bilde 2",
+    "Fame Hårdesign, bilde 3",
+    "Fame Hårdesign, bilde 4",
+    "Fame Hårdesign, bilde 5",
+  ];
 
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = lightbox ? lightbox.querySelector(".lightbox__img") : null;
@@ -842,179 +759,61 @@
   /* -------- Google reviews carousel -------- */
   var GOOGLE_REVIEWS_LINK =
     "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent("Virvel Narvik AS Kirkegata 34 Narvik");
+    encodeURIComponent("Fame Hårdesign Kirkegata 23A Narvik");
 
   var GOOGLE_REVIEWS_META = {
-    scoreText: "4,8",
-    countText: "30+ anmeldelser",
+    scoreText: "4,9",
+    countText: "Anmeldelser på Google",
   };
 
-  /**
-   * Basert på Google Maps-anmeldelser for Virvel Narvik AS — kun fornavn, norsk tekst uten emoji.
-   */
   var GOOGLE_REVIEWS_LIST = [
     {
-      text: "Veldig hyggelige frisører. Fantastisk salong.",
-      author: "Toril",
+      text: "Hyggelige folk og god service. Kommer gjerne tilbake.",
+      author: "Kunde",
       rating: 5,
-      time: "for 3 år siden",
+      time: "nylig",
     },
     {
-      text:
-        "Hadde en veldig hyggelig og fin opplevelse med Janeth. Hun var grundig og forsto nøyaktig hva jeg ønsket. Har du hatt dårlige opplevelser andre steder, anbefaler jeg Virvel.",
-      author: "Isak",
+      text: "Fornøyd med klipp og farge. Fikk akkurat det jeg ønsket.",
+      author: "Kunde",
       rating: 5,
-      time: "for 2 år siden",
+      time: "nylig",
     },
     {
-      text: "Super service! Camilla får til og med orden på sveisen min.",
-      author: "Hans",
+      text: "Fin salong i sentrum. Rolig og trivelig atmosfære.",
+      author: "Kunde",
       rating: 5,
-      time: "for 7 år siden",
+      time: "nylig",
     },
     {
-      text: "Som alltid koser jeg meg her – frisøren gjør en veldig god jobb.",
-      author: "Jorun",
+      text: "Profesjonelt og hyggelig fra start til slutt.",
+      author: "Kunde",
       rating: 5,
-      time: "for 4 år siden",
+      time: "nylig",
     },
     {
-      text: "Fint sted, og veldig flinke frisører.",
-      author: "Kirsten",
+      text: "Anbefaler Fame Hårdesign til venner og familie.",
+      author: "Kunde",
       rating: 5,
-      time: "for 4 år siden",
+      time: "nylig",
     },
     {
-      text: "Et fantastisk og vakkert sted.",
-      author: "Muneer",
+      text: "God opplevelse med keratinbehandling.",
+      author: "Kunde",
       rating: 5,
-      time: "for 4 år siden",
+      time: "nylig",
     },
     {
-      text: "God opplevelse.",
-      author: "Ruben",
+      text: "Flinke frisører som tar seg tid.",
+      author: "Kunde",
       rating: 4,
-      time: "for 1 år siden",
+      time: "nylig",
     },
     {
-      text: "Fornøyd kunde.",
-      author: "Kristin",
+      text: "Enkelt å bestille time på Fixit.",
+      author: "Kunde",
       rating: 5,
-      time: "for 2 år siden",
-    },
-    {
-      text: "Fornøyd.",
-      author: "Marit",
-      rating: 5,
-      time: "for 2 år siden",
-    },
-    {
-      text: "God opplevelse.",
-      author: "Inger Lill",
-      rating: 4,
-      time: "for 3 år siden",
-    },
-    {
-      text: "Koselig å være her. Veldig fornøyd med servicen. Flinke frisører.",
-      author: "Gunnhild",
-      rating: 5,
-      time: "for 8 år siden",
-    },
-    {
-      text: "Gode og veldig hyggelige frisører.",
-      author: "Kaj",
-      rating: 5,
-      time: "for 6 år siden",
-    },
-    {
-      text: "Som alltid en god opplevelse.",
-      author: "Ingvild",
-      rating: 5,
-      time: "for 5 år siden",
-    },
-    {
-      text: "Veldig fornøyd, flinke fagfolk.",
-      author: "Willy",
-      rating: 5,
-      time: "for 7 år siden",
-    },
-    {
-      text: "Dyktige frisører som tar deg godt imot.",
-      author: "Lindis",
-      rating: 5,
-      time: "for 2 år siden",
-    },
-    {
-      text: "Linda er superflink.",
-      author: "Boy-Arne",
-      rating: 5,
-      time: "for 6 måneder siden",
-    },
-    {
-      text: "Helt topp som alltid.",
-      author: "Sølvi",
-      rating: 5,
-      time: "for 5 år siden",
-    },
-    {
-      text: "Helt topp.",
-      author: "Turid",
-      rating: 5,
-      time: "for 3 år siden",
-    },
-    {
-      text: "Takk til alle på Virvel.",
-      author: "Kjell",
-      rating: 5,
-      time: "for 7 år siden",
-    },
-    {
-      text: "Alltid god service.",
-      author: "Alf",
-      rating: 5,
-      time: "for 3 år siden",
-    },
-    {
-      text: "Bra opplevelse og hyggelig folk.",
-      author: "Evy",
-      rating: 4,
-      time: "for 4 år siden",
-    },
-    {
-      text: "Hyggelig besøk.",
-      author: "Mona",
-      rating: 5,
-      time: "for 4 år siden",
-    },
-    {
-      text: "Hyggelig og profesjonelt.",
-      author: "Siv Anita",
-      rating: 5,
-      time: "for 5 år siden",
-    },
-    {
-      text: "Anbefaler Virvel.",
-      author: "Carina",
-      rating: 5,
-      time: "for 5 år siden",
-    },
-    {
-      text: "Veldig bra.",
-      author: "Daniela",
-      rating: 4,
-      time: "for 6 år siden",
-    },
-    {
-      text: "Fin salong og god stemning.",
-      author: "Charlotte",
-      rating: 4,
-      time: "for 8 år siden",
-    },
-    {
-      text: "God opplevelse.",
-      author: "Matias",
-      rating: 5,
-      time: "for 8 år siden",
+      time: "nylig",
     },
   ];
 
@@ -1205,8 +1004,8 @@
   function initSalonMap() {
     var el = document.getElementById("salon-map");
     if (!el || typeof L === "undefined") return;
-    var lat = 68.4376;
-    var lon = 17.4282;
+    var lat = 68.43895;
+    var lon = 17.42689;
     var map = L.map(el, {
       scrollWheelZoom: false,
       attributionControl: true,
@@ -1216,7 +1015,7 @@
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
-    L.marker([lat, lon]).addTo(map).bindPopup("<strong>Virvel frisør</strong><br>Kongens gate 15");
+    L.marker([lat, lon]).addTo(map).bindPopup("<strong>Fame Hårdesign</strong><br>Kirkegata 23A");
     function resizeMap() {
       map.invalidateSize();
     }
